@@ -20,12 +20,13 @@ Installation of the package can be performed via Atom's Settings pane or on the 
 apm install git-edit-atom
 ~~~
 See the [`git-commit-atom` repository](https://github.com/mmore500/git-commit-atom) for instructions on how to install the sister Go package.
-After Installation
+
 
 ## Usage
 Once the  `git-edit-atom` Atom package is installed and the `git-commit-atom` Go package is configured as Git's editor, Git `COMMIT_EDITMSG`, `TAG_EDITMSG`, `MERGE_MSG`, `git-rebase-todo`, and `.diff` files will open in the current pane of Atom.
-To complete the message editing process simply close the tab (`cmd-w` is convenient) if the Atom package `git-edit-atom` is configured to tag the "magic marker" on the end of the message file type or, if not, enter `quit` or `done` at the terminal.
-The filetypes recognized by `git-edit-atom` to tag with the magic marker can be configured in the package settings.
+To complete the message editing process simply close the tab (`cmd-w` is convenient) if the Atom package `git-edit-atom` is configured to tag the "magic marker" on the end of the message file type.
+If Atom is not configured to supply the "magic marker" on file close, simply enter `quit` or `done` followed by a return at the terminal.
+The filetypes recognized by `git-edit-atom` can be configured in the package settings.
 By default, `COMMIT_EDITMSG`, `TAG_EDITMSG`, `MERGE_MSG`, and `git-rebase-todo` files are targeted for tagging with the magic marker but `.diff` files are not.
 
 
