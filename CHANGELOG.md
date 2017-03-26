@@ -7,3 +7,5 @@
 ## 0.2.2 - Correct README
 
 ## 0.2.3 - Update project description
+
+## 0.2.4 - Correct project description
