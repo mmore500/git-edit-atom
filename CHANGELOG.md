@@ -5,3 +5,5 @@
 ## 0.2.1 - Update CHANGELOG
 
 ## 0.2.2 - Correct README
+
+## 0.2.3 - Update project description
