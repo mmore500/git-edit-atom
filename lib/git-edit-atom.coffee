@@ -9,24 +9,30 @@ module.exports =
       type: 'boolean'
       default: true
       order: 1
+    tag:
+      title: 'Append magic token to tag message files?'
+      description: 'If enabled, the token `##ATOM EDIT COMPLETE##` will be appended to any `TAG_EDITMSG` file opened in Atom when that file is closed. If disabled, the user will have to manually signal the completion of the edited message by entering `quit` or `done` at the command line.'
+      type: 'boolean'
+      default: true
+      order: 2
     merge:
       title: 'Append magic token to merge message files?'
       description: 'If enabled, the token `##ATOM EDIT COMPLETE##` will be appended to any `MERGE_MSG` file opened in Atom when that file is closed. If disabled, the user will have to manually signal the completion of the edited message by entering `quit` or `done` at the command line.'
       type: 'boolean'
       default: true
-      order: 2
+      order: 3
     rebase:
       title: 'Append magic token to rebase todo files?'
       description: 'If enabled, the token `##ATOM EDIT COMPLETE##` will be appended to any `git-rebase-todo` file opened in Atom when that file is closed. If disabled, the user will have to manually signal the completion of the rebase todo by entering `quit` or `done` at the command line.'
       type: 'boolean'
       default: true
-      order: 3
+      order: 4
     diff:
       title: 'Append magic token to diff files?'
       description: 'If enabled, the token `##ATOM EDIT COMPLETE##` will be appended to any `*.diff` file opened in Atom when that file is closed. If disabled, the user will have to manually signal the completion of the diff edit by entering `quit` or `done` at the command line.'
       type: 'boolean'
       default: false
-      order: 4
+      order: 5
 
   # Called upon Atom initial load
   activate: (state) ->
@@ -46,6 +52,7 @@ module.exports =
   # Set up for all editors to be screened for commit messages.
   _setup: ->
     @_setup_one('git-edit-atom.commit', 'COMMIT_EDITMSG', true)
+    @_setup_one('git-edit-atom.tag', 'TAG_EDITMSG', true)
     @_setup_one('git-edit-atom.merge', 'MERGE_MSG', true)
     @_setup_one('git-edit-atom.rebase', 'git-rebase-todo', true)
     @_setup_one('git-edit-atom.diff', 'diff', false)
