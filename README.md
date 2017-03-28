@@ -24,19 +24,25 @@ See the [`git-commit-atom` repository](https://github.com/mmore500/git-commit-at
 
 ## Usage
 Once the  `git-edit-atom` Atom package is installed and the `git-commit-atom` Go package is configured as Git's editor, Git `COMMIT_EDITMSG`, `TAG_EDITMSG`, `MERGE_MSG`, `git-rebase-todo`, and `.diff` files will open in the current pane of Atom.
-To complete the message editing process simply close the tab (`cmd-w` is convenient) if the Atom package `git-edit-atom` is configured to tag the "magic marker" on the end of the message file type.
+
+To complete the message editing process simply close the tab (`cmd-w` is convenient) if the Atom package `git-edit-atom` is configured to tag the "magic marker" on the end of that message file type.
+
 If Atom is not configured to supply the "magic marker" on file close, simply enter `quit` or `done` followed by a return at the terminal.
+
 The filetypes recognized by `git-edit-atom` can be configured in the package settings.
 By default, `COMMIT_EDITMSG`, `TAG_EDITMSG`, `MERGE_MSG`, and `git-rebase-todo` files are targeted for tagging with the magic marker but `.diff` files are not.
 
 
 ## Implementation
 This project has two components: a standalone Go script that acts as the editor called by Git during the commit process and the Atom package `git-edit-atom`.
+
 When the standalone Go script is activated, it opens the `COMMIT_EDITMSG` file in the current Atom pane.
 When that file is closed, Atom appends a "magic marker" (`## ATOM EDIT COMPLETE##`) to the end of the `COMMIT_EDITMSG` file.
 The Go script, which is listening to the end of the `COMMIT_EDITMSG` file, recognizes the "magic marker" and terminates, ending the commit edit session.
+
 In addition, the Go script listens for user input at the terminal.
 The commit session can also be ended by entering `quit` or `done`.
 (This functionality allows the standalone script to function in some capacity without the Atom package in place).
-This approach is directly inspired by AJ Foster's "git-commit-atom.sh", [presented on his personal blog](https://aj-foster.com/2016/git-commit-atom/).
-However, this project is implemented in Go and as an Atom package in hopes of gaining portability and reliability.
+
+This project is directly inspired by AJ Foster's `git-commit-atom.sh`, [presented on his personal blog](https://aj-foster.com/2016/git-commit-atom/).
+It is hoped that this implementation in Go and as an Atom package will yield greater portability and reliability.
