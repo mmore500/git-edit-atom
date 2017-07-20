@@ -33,6 +33,12 @@ module.exports =
       type: 'boolean'
       default: false
       order: 5
+    pr:
+      title: 'Append magic token to pull request message files?'
+      description: 'If enabled, the token `##ATOM EDIT COMPLETE##` will be appended to any `PULLREQ_EDITMSG` file opened in Atom when that file is closed. If disabled, the user will have to manually signal the completion of the diff edit by entering `quit` or `done` at the command line.'
+      type: 'boolean'
+      default: true
+      order: 6
 
   # Called upon Atom initial load
   activate: (state) ->
@@ -54,6 +60,7 @@ module.exports =
     @_setup_one('git-edit-atom.commit', 'COMMIT_EDITMSG', true)
     @_setup_one('git-edit-atom.tag', 'TAG_EDITMSG', true)
     @_setup_one('git-edit-atom.merge', 'MERGE_MSG', true)
+    @_setup_one('git-edit-atom.pr', 'PULLREQ_EDITMSG', true)
     @_setup_one('git-edit-atom.rebase', 'git-rebase-todo', true)
     @_setup_one('git-edit-atom.diff', 'diff', false)
     true
