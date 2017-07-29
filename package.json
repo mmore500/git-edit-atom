@@ -1,7 +1,7 @@
 {
   "name": "git-edit-atom",
   "main": "./lib/git-edit-atom",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Easily edit Git commit messages in the current Atom pane 🌟 😏",
   "keywords": [],
   "repository": "https://github.com/mmore500/git-edit-atom",
